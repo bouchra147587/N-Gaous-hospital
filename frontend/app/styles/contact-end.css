@@ -1,0 +1,151 @@
+/* ============================================================
+   HOME PAGE ENDING: contact block (prefix: ct-)
+   contact cards side by side + form, then the full-width map
+   ============================================================ */
+
+.ct-section {
+  border-top: 1px solid var(--line);
+  background:
+    radial-gradient(900px 320px at 50% -80px, var(--green-mist), transparent 70%),
+    var(--paper-raised);
+}
+.ct-inner {
+  max-width: 72rem;
+  margin-inline: auto;
+  padding: 72px 20px 80px;
+}
+
+/* ---------- heading ---------- */
+.ct-head {
+  max-width: 44rem;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+.ct-eyebrow {
+  margin: 0 0 12px;
+  color: var(--brick, var(--green-deep));
+  font-size: 14px;
+  font-weight: 700;
+}
+.ct-title {
+  margin: 0;
+  color: var(--green-deeper);
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 800;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+.ct-desc {
+  margin: 14px auto 0;
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+/* ---------- info cards, side by side ---------- */
+.ct-cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+.ct-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 26px 18px 24px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  color: var(--ink);
+  background: var(--paper);
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.ct-card.is-link:hover {
+  transform: translateY(-4px);
+  border-color: var(--green-deep);
+  box-shadow: var(--shadow-xl);
+}
+.ct-card.is-link:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+.ct-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  margin-bottom: 4px;
+  border-radius: 18px;
+  color: var(--green-deep);
+  background: var(--green-mist);
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+.ct-card.is-link:hover .ct-icon {
+  color: #fff;
+  background: var(--green-deep);
+  transform: scale(1.06);
+}
+.ct-label {
+  color: var(--ink-soft);
+  font-size: 12.5px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+.ct-value {
+  color: var(--ink);
+  font-size: 14.5px;
+  font-weight: 700;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+/* ---------- form ---------- */
+.ct-form-card {
+  max-width: 48rem;
+  margin: 36px auto 0;
+  padding: 34px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--paper);
+  box-shadow: var(--shadow-lg);
+}
+
+@media (max-width: 1024px) {
+  .ct-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 560px) {
+  .ct-inner {
+    padding: 52px 16px 56px;
+  }
+  .ct-cards {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .ct-card {
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 18px;
+    text-align: start;
+  }
+  .ct-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    margin: 0;
+  }
+  .ct-card > .ct-label,
+  .ct-card > .ct-value {
+    display: block;
+  }
+  .ct-form-card {
+    padding: 22px 18px;
+    border-radius: 20px;
+  }
+}

@@ -1,0 +1,184 @@
+/* ============================================================
+   LOCATION MAP  (prefix: loc-)  --  full-width, just above the footer
+   ============================================================ */
+
+.loc-section {
+  width: 100%;
+  margin-top: 72px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+/* on the home page the contact section sits right above the map */
+.loc-section.loc-home {
+  margin-top: 0;
+}
+
+.loc-map {
+  position: relative;
+  width: 100%;
+  height: clamp(380px, 58vh, 580px);
+  background: var(--paper-raised);
+}
+.loc-iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ---------- floating buttons (bottom center) ---------- */
+.loc-float {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  width: max-content;
+  max-width: calc(100% - 24px);
+}
+.loc-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 20px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--green-deep);
+  background: var(--paper);
+  box-shadow: 0 6px 20px rgba(9, 51, 78, 0.22);
+  font-size: 13.5px;
+  font-weight: 800;
+  line-height: 1.2;
+  white-space: nowrap;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+.loc-pill:hover {
+  transform: translateY(-2px);
+  background: var(--green-mist);
+  box-shadow: 0 10px 26px rgba(9, 51, 78, 0.28);
+}
+.loc-pill-ext {
+  opacity: 0.6;
+}
+.loc-pill-primary {
+  border-color: transparent;
+  color: #fff;
+  background: linear-gradient(135deg, var(--green-deep), var(--green-deeper));
+}
+.loc-pill-primary:hover {
+  background: var(--green-deeper);
+}
+.loc-pill:focus-visible,
+.loc-iconbtn:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* ---------- branded card (when exact coordinates are set) ---------- */
+.loc-card {
+  position: absolute;
+  z-index: 3;
+  top: 18px;
+  /* line the card up with the site's content column, like the rest of the page */
+  inset-inline-start: max(16px, calc((100% - 72rem) / 2 + 20px));
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  width: min(400px, calc(100% - 32px));
+  padding: 16px 16px 16px 18px;
+  padding-inline: 18px 16px;
+  border-radius: 16px;
+  color: var(--ink);
+  background: var(--paper);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18), 0 10px 28px rgba(9, 51, 78, 0.2);
+}
+.loc-card-text {
+  flex: 1;
+  min-width: 0;
+}
+.loc-card-name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+.loc-card-addr {
+  margin: 4px 0 0;
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.loc-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--ink-soft);
+  font-size: 12.5px;
+}
+.loc-card-meta li {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.loc-card-meta svg {
+  flex-shrink: 0;
+  color: var(--green-deep);
+}
+.loc-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.loc-iconbtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  color: var(--green-deep);
+  background: var(--green-mist);
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+.loc-iconbtn:hover {
+  transform: translateY(-1px);
+  color: #fff;
+  background: var(--green-deep);
+}
+/* with our own card, the floating buttons would repeat its two icons: keep only Directions */
+.loc-card ~ .loc-float .loc-pill:not(.loc-pill-primary) {
+  display: none;
+}
+
+/* ---------- phones ---------- */
+@media (max-width: 640px) {
+  .loc-section {
+    margin-top: 56px;
+  }
+  .loc-section.loc-home {
+    margin-top: 0;
+  }
+  .loc-map {
+    height: 460px;
+  }
+  .loc-card {
+    inset-inline: 12px;
+    width: auto;
+    top: 12px;
+  }
+  .loc-float {
+    bottom: 64px; /* keep clear of Google's fullscreen control and the chat button */
+    flex-direction: column;
+    align-items: stretch;
+    width: calc(100% - 24px);
+  }
+  .loc-pill {
+    justify-content: center;
+    padding: 12px 16px;
+  }
+}

@@ -1,0 +1,1317 @@
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+
+.section-anchor {
+  scroll-margin-top: 110px;
+}
+
+.hospital-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  width: 100%;
+  font-family: var(--font-inter), var(--font-tajawal), system-ui, sans-serif;
+  opacity: 0;
+  transform: translateY(-18px);
+  transition:
+    background 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease,
+    opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hospital-navbar.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hospital-navbar.nav-transparent .hospital-navbar-wrapper {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom-color: transparent;
+  box-shadow: none;
+}
+
+.hospital-navbar.nav-transparent .hospital-topbar {
+  background: transparent;
+  border-bottom-color: rgba(255, 255, 255, 0.18);
+}
+
+.hospital-navbar.nav-transparent .hospital-brand-title,
+.hospital-navbar.nav-transparent .hospital-brand-title-ar {
+  color: #ffffff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+.hospital-navbar.nav-transparent .hospital-brand-name,
+.hospital-navbar.nav-transparent .hospital-brand-name-ar {
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+.hospital-navbar.nav-transparent .hospital-brand-subtitle {
+  color: rgba(255, 255, 255, 0.82);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+}
+
+.hospital-navbar.nav-transparent .hospital-logo-divider {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.hospital-navbar.nav-transparent .hospital-nav-link {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.hospital-navbar.nav-transparent .hospital-nav-link svg {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.hospital-navbar.nav-transparent .hospital-nav-link:hover {
+  color: #ffffff;
+}
+
+.hospital-navbar.nav-transparent .hospital-nav-link:hover svg {
+  color: #ffffff;
+}
+
+.hospital-navbar.nav-transparent .hospital-nav-link::before {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.hospital-navbar.nav-transparent .hospital-controls {
+  border-left-color: rgba(255, 255, 255, 0.3);
+}
+
+.hospital-navbar.nav-transparent.is-rtl .hospital-controls {
+  border-right-color: rgba(255, 255, 255, 0.3);
+}
+
+.hospital-navbar.nav-transparent .theme-toggle {
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.hospital-navbar.nav-transparent .theme-icon {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.hospital-navbar.nav-transparent .language-button {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.hospital-navbar.nav-transparent .language-button svg:first-child {
+  color: #ffffff;
+}
+
+.hospital-navbar.nav-transparent .mobile-icon-button,
+.hospital-navbar.nav-transparent .mobile-menu-button {
+  color: #ffffff;
+}
+
+.hospital-navbar.scrolled .hospital-navbar-inner {
+  min-height: 80px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.hospital-navbar.scrolled .hospital-brand {
+  min-height: 80px;
+}
+
+.hospital-navbar.scrolled .hospital-logo,
+.hospital-navbar.scrolled .hospital-logo-image {
+  width: 80px;
+  height: 80px;
+}
+
+.hospital-navbar.scrolled .hospital-logo-divider {
+  height: 52px;
+}
+
+.hospital-navbar.scrolled .hospital-brand-title {
+  font-size: 16px;
+}
+
+.hospital-navbar.scrolled .hospital-brand-name {
+  font-size: 14px;
+}
+
+.hospital-navbar.scrolled .hospital-brand-title-ar {
+  font-size: 22px;
+}
+
+.hospital-navbar.scrolled .hospital-brand-name-ar {
+  font-size: 18px;
+}
+
+.hospital-navbar.scrolled .hospital-brand-subtitle {
+  font-size: 8px;
+  margin-top: 4px;
+}
+
+.hospital-navbar.scrolled .hospital-navbar-wrapper {
+  border-bottom-color: var(--green-deep);
+  box-shadow: var(--nav-shadow-fixed);
+}
+
+.site-main {
+  padding-top: 118px;
+}
+
+@media (max-width: 1024px) {
+  .site-main {
+    padding-top: 82px;
+  }
+}
+
+@media (max-width: 600px) {
+  .site-main {
+    padding-top: 74px;
+  }
+}
+
+/* ============================================================
+   TOP CONTACT BAR
+   ============================================================ */
+
+.hospital-topbar {
+  width: 100%;
+  background: linear-gradient(135deg, var(--paper-raised), var(--paper));
+  border-bottom: 1px solid var(--line);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  max-height: 60px;
+  overflow: hidden;
+  opacity: 1;
+}
+
+.hospital-navbar.scrolled .hospital-topbar {
+  max-height: 0;
+  opacity: 0;
+  padding: 0;
+  margin: 0;
+  border-bottom: none;
+  pointer-events: none;
+}
+
+.hospital-topbar-inner {
+  width: min(1500px, calc(100% - 80px));
+  min-height: 58px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.hospital-contact-group {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: var(--ink-soft);
+  font-size: 14px;
+  font-weight: 500;
+  direction: ltr;
+}
+
+.hospital-contact-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+  direction: ltr;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.hospital-contact-item:hover {
+  color: var(--green-deep);
+  transform: translateY(-1px);
+}
+
+.hospital-contact-item svg {
+  color: var(--green-deep);
+  flex-shrink: 0;
+}
+
+.hospital-top-divider {
+  width: 1px;
+  height: 20px;
+  background: var(--line-dark);
+}
+
+.emergency-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 18px;
+  min-height: 36px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--brick), #ef3d49);
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.emergency-badge:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 25px rgba(230, 57, 70, 0.4);
+}
+
+.emergency-badge svg {
+  flex-shrink: 0;
+  animation: pulse-emergency 2s ease-in-out infinite;
+}
+
+@keyframes pulse-emergency {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(0.95); }
+}
+
+.emergency-time {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+  direction: ltr;
+}
+
+.emergency-divider {
+  width: 1px;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.hospital-navbar-wrapper {
+  position: relative;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(217, 230, 237, 0.7);
+  box-shadow: var(--nav-shadow);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark .hospital-navbar-wrapper {
+  background: rgba(7, 23, 32, 0.94);
+  border-bottom-color: var(--line);
+}
+
+.hospital-navbar-inner {
+  width: 100%;
+  max-width: 1500px;
+  padding: 0 40px;
+  min-height: 118px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  direction: inherit;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hospital-brand {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 20px;
+  min-height: 118px;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  direction: inherit;
+}
+
+.hospital-navbar.loaded .hospital-brand {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hospital-brand:hover {
+  opacity: 0.95;
+}
+
+.hospital-logo-wrapper {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hospital-logo-ring {
+  position: absolute;
+  inset: -9px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, var(--green-deep), var(--gold), var(--green-deep));
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 3px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 3px));
+  opacity: 0.8;
+  animation: logoRingSpin 7s linear infinite;
+  pointer-events: none;
+}
+
+.hospital-logo-glow {
+  position: absolute;
+  inset: -16px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(8, 125, 183, 0.35), transparent 70%);
+  opacity: 0;
+  filter: blur(6px);
+  animation: logoGlowPulse 3.2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.hospital-navbar.loaded .hospital-logo-glow {
+  opacity: 0.55;
+}
+
+@keyframes logoRingSpin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes logoGlowPulse {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 0.65; transform: scale(1.1); }
+}
+
+.hospital-logo {
+  position: relative;
+  z-index: 1;
+  width: 118px;
+  height: 100px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 50%;
+  background: var(--paper);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.85);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hospital-brand:hover .hospital-logo {
+  transform: scale(1.06) rotate(-4deg);
+}
+
+.hospital-navbar.nav-transparent .hospital-logo {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.55);
+}
+
+.hospital-logo::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, var(--green-deep), transparent 70%);
+  opacity: 0;
+  filter: blur(8px);
+  transition: opacity 0.4s ease;
+}
+
+.hospital-brand:hover .hospital-logo::after {
+  opacity: 0.3;
+}
+
+.hospital-logo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hospital-logo-divider {
+  width: 1px;
+  height: 76px;
+  flex-shrink: 0;
+  background: var(--line-dark);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hospital-brand-text {
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.15;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hospital-brand-text.brand-ltr {
+  direction: ltr;
+  text-align: left;
+}
+
+.hospital-brand-text.brand-rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+.hospital-brand-title {
+  color: var(--green-deeper);
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hospital-brand-name {
+  color: var(--green-deep);
+  font-size: 17px;
+  font-weight: 700;
+  margin-top: 3px;
+  letter-spacing: 0.03em;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hospital-brand-title-ar {
+  color: var(--green-deeper);
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.1;
+  direction: rtl;
+  text-align: right;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hospital-brand-name-ar {
+  color: var(--green-deep);
+  font-size: 23px;
+  font-weight: 700;
+  margin-top: 3px;
+  line-height: 1.2;
+  direction: rtl;
+  text-align: right;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hospital-brand-subtitle {
+  color: var(--ink-soft);
+  font-size: 10px;
+  font-weight: 500;
+  margin-top: 8px;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hospital-desktop-content {
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 30px;
+  direction: inherit;
+}
+
+.hospital-navigation {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  direction: inherit;
+}
+
+.hospital-nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 4px;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: color 0.25s ease, transform 0.25s ease;
+  direction: inherit;
+}
+
+.hospital-navbar.loaded .hospital-nav-link {
+  animation: navLinkIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes navLinkIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hospital-nav-link svg {
+  color: var(--ink-soft);
+  flex-shrink: 0;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.hospital-nav-link span {
+  font-family: inherit;
+}
+
+.hospital-nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 0;
+  height: 2.5px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--green-deep), var(--gold));
+  transition: width 0.3s ease;
+}
+
+.hospital-nav-link::before {
+  content: '';
+  position: absolute;
+  inset: -8px -12px;
+  border-radius: 12px;
+  background: var(--green-mist);
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: -1;
+}
+
+.hospital-nav-link:hover::before {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.hospital-navbar.is-rtl .hospital-nav-link::after {
+  left: auto;
+  right: 0;
+}
+
+.hospital-navbar.is-rtl .hospital-nav-link::before {
+  left: auto;
+  right: 0;
+}
+
+.hospital-nav-link:hover {
+  color: var(--green-deep);
+  transform: translateY(-2px);
+}
+
+.hospital-nav-link:hover svg {
+  color: var(--green-deep);
+  transform: translateY(-1px);
+}
+
+.hospital-nav-link:hover::after {
+  width: 100%;
+}
+
+.hospital-controls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-left: 24px;
+  border-left: 1px solid var(--line);
+  direction: ltr;
+  transition: all 0.3s ease;
+}
+
+.hospital-navbar.is-rtl .hospital-controls {
+  padding-left: 0;
+  padding-right: 24px;
+  border-left: none;
+  border-right: 1px solid var(--line);
+  direction: rtl;
+}
+
+.theme-toggle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 3px;
+  gap: 2px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper-raised);
+  cursor: pointer;
+  transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease, transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-toggle:hover {
+  border-color: var(--green-deep);
+  box-shadow: 0 0 20px rgba(8, 125, 183, 0.1);
+  transform: scale(1.06);
+}
+
+.theme-toggle:active {
+  transform: scale(0.94);
+}
+
+.theme-icon {
+  width: 32px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  color: var(--ink-soft);
+  transition: color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.theme-icon.active {
+  color: #e79b16;
+  background: var(--white);
+  box-shadow: 0 2px 8px rgba(9, 51, 78, 0.1);
+  animation: themeIconPop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.theme-icon.dark-active {
+  color: #ffffff;
+  background: var(--brand-navy);
+  animation: themeIconPop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes themeIconPop {
+  from { transform: scale(0.6) rotate(-45deg); }
+  to { transform: scale(1) rotate(0deg); }
+}
+
+.language-wrapper {
+  position: relative;
+  z-index: 2000;
+}
+
+.language-button {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper-raised);
+  color: var(--ink-soft);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease, transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  direction: inherit;
+}
+
+.language-button span {
+  font-family: inherit;
+}
+
+.language-button:active {
+  transform: scale(0.95);
+}
+
+.language-button:hover {
+  color: var(--green-deep);
+  transform: translateY(-1px);
+  border-color: var(--green-deep);
+  background: var(--green-mist);
+  box-shadow: 0 0 20px rgba(8, 125, 183, 0.1);
+}
+
+.language-button svg:first-child {
+  color: var(--green-deep);
+}
+
+.language-chevron {
+  transition: transform 0.25s ease;
+}
+
+.language-chevron.open {
+  transform: rotate(180deg);
+}
+
+.language-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 155px;
+  padding: 6px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--paper);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+  animation: languageDropdownIn 0.18s ease-out;
+  direction: inherit;
+}
+
+.hospital-navbar.is-rtl .language-dropdown {
+  right: auto;
+  left: 0;
+}
+
+@keyframes languageDropdownIn {
+  from { opacity: 0; transform: translateY(-5px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.language-option {
+  width: 100%;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  border: none;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+  direction: inherit;
+}
+
+.language-option span {
+  font-family: inherit;
+}
+
+.language-option:hover {
+  background: var(--green-mist);
+  color: var(--green-deep);
+}
+
+.language-option.active {
+  background: var(--green-mist);
+  color: var(--green-deep);
+  font-weight: 700;
+}
+
+.language-active-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green-deep);
+}
+
+.hospital-mobile-controls {
+  display: none;
+  align-items: center;
+  gap: 5px;
+  margin-left: auto;
+  direction: inherit;
+}
+
+.hospital-navbar.is-rtl .hospital-mobile-controls {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.mobile-icon-button,
+.mobile-menu-button {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.mobile-icon-button:active,
+.mobile-menu-button:active {
+  transform: scale(0.9);
+}
+
+.mobile-icon-button:hover,
+.mobile-menu-button:hover {
+  color: var(--green-deep);
+  background: var(--green-mist);
+  transform: scale(1.05);
+}
+
+.hospital-mobile-menu {
+  display: none;
+  width: 100%;
+  max-height: calc(100dvh - 82px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 20px 24px 24px;
+  border-top: 1px solid var(--line);
+  background: var(--paper);
+  box-shadow: var(--shadow-lg);
+  animation: mobileMenuIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  direction: inherit;
+}
+
+@keyframes mobileMenuIn {
+  from { opacity: 0; transform: translateY(-10px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.mobile-contact-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.mobile-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 9px;
+  color: var(--ink-soft);
+  font-size: 14px;
+  direction: ltr;
+  transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.mobile-contact-item:hover {
+  color: var(--green-deep);
+  background: var(--green-mist);
+  transform: translateX(3px);
+}
+
+.mobile-contact-item svg {
+  color: var(--green-deep);
+}
+
+.mobile-navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px 0;
+  direction: inherit;
+}
+
+.mobile-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 14px;
+  border-radius: 10px;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 600;
+  direction: inherit;
+  opacity: 0;
+  animation: mobileNavLinkIn 0.4s ease forwards;
+  transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.mobile-nav-link:hover {
+  transform: translateX(-4px);
+}
+
+.hospital-navbar.is-rtl .mobile-nav-link:hover {
+  transform: translateX(4px);
+}
+
+.mobile-nav-link:nth-child(1) { animation-delay: 0.05s; }
+.mobile-nav-link:nth-child(2) { animation-delay: 0.1s; }
+.mobile-nav-link:nth-child(3) { animation-delay: 0.15s; }
+.mobile-nav-link:nth-child(4) { animation-delay: 0.2s; }
+.mobile-nav-link:nth-child(5) { animation-delay: 0.25s; }
+.mobile-nav-link:nth-child(6) { animation-delay: 0.3s; }
+.mobile-nav-link:nth-child(7) { animation-delay: 0.35s; }
+.mobile-nav-link:nth-child(8) { animation-delay: 0.4s; }
+
+@keyframes mobileNavLinkIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.mobile-nav-link span {
+  font-family: inherit;
+}
+
+.mobile-nav-link svg {
+  color: var(--ink-soft);
+  flex-shrink: 0;
+}
+
+.mobile-nav-link:hover {
+  color: var(--green-deep);
+  background: var(--green-mist);
+  transform: translateX(3px);
+}
+
+.hospital-navbar.is-rtl .mobile-nav-link:hover {
+  transform: translateX(-3px);
+}
+
+.mobile-nav-link:hover svg {
+  color: var(--green-deep);
+}
+
+.mobile-language-section {
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+  direction: inherit;
+}
+
+.mobile-language-label {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--ink-soft);
+  font-size: 13px;
+  font-weight: 600;
+  text-align: start;
+}
+
+.mobile-language-label span {
+  font-family: inherit;
+}
+
+.mobile-language-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  direction: inherit;
+}
+
+.mobile-language-option {
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.mobile-language-option:hover {
+  border-color: var(--green-deep);
+  color: var(--green-deep);
+  transform: scale(1.05);
+}
+
+.mobile-language-option.active {
+  border-color: var(--green-deep);
+  background: var(--green-mist);
+  color: var(--green-deep);
+}
+
+/* ============================================================
+   RESPONSIVE — LARGE LAPTOPS
+   ============================================================ */
+
+@media (max-width: 1450px) {
+  .hospital-topbar-inner {
+    width: min(1400px, calc(100% - 50px));
+  }
+
+  .hospital-navbar-inner {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .hospital-navigation {
+    gap: 24px;
+  }
+
+  .hospital-nav-link {
+    font-size: 13px;
+  }
+
+  .hospital-desktop-content {
+    gap: 20px;
+  }
+
+  .hospital-controls {
+    gap: 10px;
+    padding-left: 16px;
+  }
+
+  .hospital-navbar.is-rtl .hospital-controls {
+    padding-left: 0;
+    padding-right: 16px;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — TABLETS
+   ============================================================ */
+
+@media (max-width: 1200px) {
+  .hospital-topbar-inner {
+    width: calc(100% - 32px);
+  }
+
+  .hospital-navbar-inner {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .hospital-navigation {
+    gap: 18px;
+  }
+
+  .hospital-nav-link {
+    font-size: 12px;
+    gap: 5px;
+  }
+
+  .hospital-nav-link svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .hospital-brand {
+    gap: 13px;
+  }
+
+  .hospital-logo,
+  .hospital-logo-image {
+    width: 96px;
+    height: 96px;
+  }
+
+  .hospital-logo-divider {
+    height: 65px;
+  }
+
+  .hospital-brand-text {
+    min-width: 175px;
+  }
+
+  .hospital-brand-title {
+    font-size: 16px;
+  }
+
+  .hospital-brand-name {
+    font-size: 14px;
+  }
+
+  .hospital-brand-title-ar {
+    font-size: 22px;
+  }
+
+  .hospital-brand-name-ar {
+    font-size: 18px;
+  }
+
+  .hospital-brand-subtitle {
+    font-size: 8px;
+  }
+
+  .language-button {
+    padding: 0 12px;
+    font-size: 12px;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — MOBILE NAV
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .hospital-topbar {
+    display: none;
+  }
+
+  .hospital-navbar-wrapper {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hospital-navbar-inner {
+    min-height: 82px;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .hospital-desktop-content {
+    display: none;
+  }
+
+  .hospital-mobile-controls {
+    display: flex;
+  }
+
+  .hospital-mobile-menu {
+    display: block;
+  }
+
+  .hospital-brand {
+    min-height: 82px;
+    gap: 10px;
+  }
+
+  .hospital-logo,
+  .hospital-logo-image {
+    width: 70px;
+    height: 70px;
+  }
+
+  .hospital-logo-divider {
+    height: 48px;
+  }
+
+  .hospital-brand-text {
+    min-width: 0;
+  }
+
+  .hospital-brand-title {
+    font-size: 14px;
+  }
+
+  .hospital-brand-name {
+    font-size: 12px;
+  }
+
+  .hospital-brand-title-ar {
+    font-size: 19px;
+  }
+
+  .hospital-brand-name-ar {
+    font-size: 15px;
+  }
+
+  .hospital-brand-subtitle {
+    margin-top: 4px;
+    font-size: 7px;
+    max-width: 190px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .hospital-navbar.scrolled .hospital-navbar-inner {
+    min-height: 64px;
+  }
+
+  .hospital-navbar.scrolled .hospital-brand {
+    min-height: 64px;
+  }
+
+  .hospital-navbar.scrolled .hospital-logo,
+  .hospital-navbar.scrolled .hospital-logo-image {
+    width: 56px;
+    height: 56px;
+  }
+
+  .hospital-navbar.scrolled .hospital-logo-divider {
+    height: 38px;
+  }
+
+  .hospital-navbar.scrolled .hospital-brand-title {
+    font-size: 12px;
+  }
+
+  .hospital-navbar.scrolled .hospital-brand-name {
+    font-size: 10px;
+  }
+
+  .hospital-navbar.scrolled .hospital-brand-title-ar {
+    font-size: 16px;
+  }
+
+  .hospital-navbar.scrolled .hospital-brand-name-ar {
+    font-size: 13px;
+  }
+
+  .hospital-navbar.scrolled .hospital-brand-subtitle {
+    display: none;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — SMALL MOBILE NAV
+   ============================================================ */
+
+@media (max-width: 600px) {
+  .hospital-navbar-inner {
+    padding-left: 10px;
+    padding-right: 10px;
+    min-height: 74px;
+  }
+
+  .hospital-brand {
+    min-height: 74px;
+    gap: 8px;
+  }
+
+  .hospital-logo,
+  .hospital-logo-image {
+    width: 58px;
+    height: 58px;
+  }
+
+  .hospital-logo-divider {
+    height: 42px;
+  }
+
+  .hospital-brand-title {
+    font-size: 12px;
+  }
+
+  .hospital-brand-name {
+    font-size: 10px;
+  }
+
+  .hospital-brand-title-ar {
+    font-size: 16px;
+  }
+
+  .hospital-brand-name-ar {
+    font-size: 13px;
+  }
+
+  .hospital-brand-subtitle {
+    display: none;
+  }
+
+  .mobile-icon-button,
+  .mobile-menu-button {
+    width: 38px;
+    height: 38px;
+  }
+
+  .hospital-mobile-menu {
+    max-height: calc(100dvh - 74px);
+    padding: 16px 15px 20px;
+  }
+}
+
+@media (max-width: 390px) {
+  .hospital-brand-text {
+    max-width: 135px;
+  }
+
+  .hospital-brand-title,
+  .hospital-brand-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .hospital-brand-title-ar,
+  .hospital-brand-name-ar {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .hospital-logo,
+  .hospital-logo-image {
+    width: 52px;
+    height: 52px;
+  }
+
+  .hospital-logo-divider {
+    height: 38px;
+  }
+}
+
+

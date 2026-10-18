@@ -1,0 +1,211 @@
+/* ============================================================
+   BASE — theme tokens, typography, resets, scrollbar, reduced-motion & print
+   ============================================================ */
+
+/* ============================================================
+   HÔPITAL BENDRIHEM FARHAT
+   ============================================================ */
+
+:root {
+  --paper: #f7fafc;
+  --paper-raised: #edf6fb;
+  --ink: #102b3b;
+  --ink-soft: #587084;
+  --green-deep: #087db7;
+  --green-deeper: #075b88;
+  --green-mist: #e8f5fb;
+  --gold: #0f9e94;
+  --gold-soft: #dff5f1;
+  --brick: #e63946;
+  --brick-dark: #c92532;
+  --line: #d9e6ed;
+  --line-dark: #c6d7e1;
+  --brand-navy: #073a56;
+  --white: #ffffff;
+  --card-shadow: 0 1px 2px rgba(9, 51, 78, 0.04), 0 8px 28px rgba(9, 51, 78, 0.08);
+  --nav-shadow: 0 8px 35px rgba(9, 51, 78, 0.08);
+  --nav-shadow-fixed: 0 10px 50px rgba(9, 51, 78, 0.15);
+  --shadow-lg: 0 15px 45px rgba(9, 51, 78, 0.12);
+  --shadow-xl: 0 20px 60px rgba(9, 51, 78, 0.15);
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.dark {
+  --paper: #071720;
+  --paper-raised: #0b2230;
+  --ink: #eaf4fa;
+  --ink-soft: #9eb7c7;
+  --green-deep: #39b5e9;
+  --green-deeper: #7bd5f7;
+  --green-mist: #103344;
+  --gold: #31dbc4;
+  --gold-soft: #123f3b;
+  --brick: #f26b75;
+  --brick-dark: #d94d58;
+  --line: #193b4d;
+  --line-dark: #234b60;
+  --brand-navy: #041f2e;
+  --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.35);
+  --nav-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+  --nav-shadow-fixed: 0 10px 50px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 15px 45px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-raised: var(--paper-raised);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-green-deep: var(--green-deep);
+  --color-green-deeper: var(--green-deeper);
+  --color-green-mist: var(--green-mist);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-brick: var(--brick);
+  --color-line: var(--line);
+  --color-brand-navy: var(--brand-navy);
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-inter), var(--font-tajawal), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+html[lang="ar"] {
+  font-family: var(--font-tajawal), var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding-top: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.65;
+  letter-spacing: 0.005em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html[lang="ar"] body {
+  line-height: 1.9;
+  letter-spacing: 0;
+  font-weight: 500;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+html[lang="ar"] h1,
+html[lang="ar"] h2,
+html[lang="ar"] h3,
+html[lang="ar"] h4,
+html[lang="ar"] h5,
+html[lang="ar"] h6 {
+  line-height: 1.5;
+  letter-spacing: 0;
+  font-weight: 700;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: var(--gold-soft);
+  color: var(--green-deeper);
+}
+
+*:focus-visible {
+  outline: 2px solid var(--green-deep);
+  outline-offset: 3px;
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--paper);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--green-deep);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--green-deeper);
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .hero-content,
+  .hero-badge-dot,
+  .hero-scroll span,
+  .hero-image {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ============================================================
+   PRINT
+   ============================================================ */
+
+@media print {
+  .hospital-navbar,
+  .hospital-mobile-menu {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+}
+
